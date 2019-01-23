@@ -16,7 +16,7 @@
         <label for="sentiment-{{s}}" class="form-check-label sentiment-{{s}}">{{s}}</label>
       </div>
     </div>
-    <div col-sm="col-sm-6">
+    <div class="col-sm-6">
       <div *ngFor="let s of sources" class="form-check">
         <input id="source-{{s}}" name="source-{{s}}" type="checkbox" class="form-check-input" [(ngModel)]="filter.sources[s]" />
         <label for="source-{{s}}" class="form-check-label source-{{s}}">{{s}}</label>
@@ -35,7 +35,7 @@
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="form-radio">
+      <div class="form-check">
         <input id="csource" name="csource" type="radio" class="form-check-input" name="colour" [(ngModel)]="filter.colourBy" value="source" />
         <label for="csource" class="form-check-label">Source</label>
       </div>

@@ -21,6 +21,7 @@ export class AppComponent implements OnInit {
   colourBy: string;
   coordinatesData: Coordinate[] = [];
   bsModalRef: BsModalRef;
+  loading: boolean = true;
 
   constructor(private sentimentService: SentimentService, private modalService: BsModalService) { }
 
@@ -64,6 +65,7 @@ export class AppComponent implements OnInit {
     this.colourBy = this.filter.colourBy;
     this.sentimentService.getCoordinates(this.filter).subscribe((data: Coordinate[]) => {
       this.coordinatesData = data;
+      this.loading = false;
     }, error => { this.showError() });
   }
 

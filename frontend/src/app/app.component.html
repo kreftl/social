@@ -7,8 +7,9 @@
       <li class="nav-item"><a class="nav-link" href='#' (click)="showAnalyticsModal()" title="Analytics"><span class="d-none d-md-inline">Analytics </span><i class="fa fa-bar-chart"></i></a></li>
       <li class="nav-item"><a class="nav-link" href='#' (click)="showFilterModal()" title="Filter"><span class="d-none d-md-inline">Filter </span><i class="fa fa-filter"></i></a></li>
     </ul>
-    <ul class="form-inline mt-3 mb-3">
-      <small>Displaying {{coordinatesData.length}} messages. <b>Click on marker for details.</b></small>
+    <ul class="form-inline mt-2 mb-2 text-center flex-grow-1 justify-content-center justify-content-sm-end">
+      <small *ngIf="!loading">Displaying {{coordinatesData.length}} messages.<br /><b>Click on marker for details.</b></small>
+      <small *ngIf="loading">Loading data...</small>
     </ul>
   </nav>
   <div id="outer" class="d-flex flex-column flex-grow-1">
