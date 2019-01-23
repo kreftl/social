@@ -23,3 +23,7 @@ $ ng serve
 ```
 
 Frontend available under http://localhost:4200/
+
+# Demo
+
+Available under http://35.247.164.207/
