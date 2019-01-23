@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.sentimentService.getData().subscribe((data: Sentiment[]) => {
-      this.sentimentData = data
+      this.sentimentData = data;
     });
   }
 
