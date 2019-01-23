@@ -17,7 +17,7 @@ Backend available under http://localhost:4000/
 # Running Frontend
 
 ```
-$ cd backend
+$ cd frontend
 $ npm install
 $ ng serve
 ```
