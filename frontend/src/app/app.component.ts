@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SentimentService } from './data/sentiment.service';
-import { Sentiment } from './data/types/sentiment';
+import { Coordinate } from './data/types/coordinate';
+import { Properties } from './data/types/properties';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PropertiesComponent } from './components/modals/properties/properties.component';
 
 @Component({
   selector: 'app-root',
@@ -9,13 +12,24 @@ import { Sentiment } from './data/types/sentiment';
 })
 export class AppComponent implements OnInit {
   title = 'Social';
-  sentimentData : Sentiment[] = [];
+  coordinatesData: Coordinate[] = [];
+  bsModalRef: BsModalRef;
 
-  constructor(private sentimentService: SentimentService) { }
+  constructor(private sentimentService: SentimentService, private modalService: BsModalService) { }
 
   ngOnInit(): void {
-    this.sentimentService.getData().subscribe((data: Sentiment[]) => {
-      this.sentimentData = data;
+    this.sentimentService.getCoordinates().subscribe((data: Coordinate[]) => {
+      this.coordinatesData = data;
+    });
+  }
+
+  showPropertiesModal(id) {
+    this.sentimentService.getProperties(id).subscribe((data: Properties) => {
+      this.bsModalRef = this.modalService.show(PropertiesComponent, {
+        initialState: {
+          properties: data,
+        }
+      });
     });
   }
 

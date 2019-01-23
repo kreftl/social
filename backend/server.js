@@ -11,6 +11,8 @@ app.get('/', (req, res) => res.send('Social Server'));
 
 app.get('/data', (req, res) => res.end(JSON.stringify(data)));
 
-app.get('/data/:id', (req, res) => res.end(JSON.stringify(data.filter(d => d._id == req.params.id)[0])));
+app.get('/properties/:id', (req, res) => res.end(JSON.stringify(data.filter(d => d._id == req.params.id)[0].properties)));
+
+app.get('/coordinates', (req, res) => res.end(JSON.stringify(data.map(d => {let c = d.coordinate; c.id = d._id; return c; }))));
 
 app.listen(4000, () => console.log(`Social Server running on port 4000`));

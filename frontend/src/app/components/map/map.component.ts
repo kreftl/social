@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { tileLayer, latLng, circle, polygon, marker, icon } from 'leaflet';
-import { Sentiment } from '../../data/types/sentiment';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { tileLayer, latLng, marker, icon } from 'leaflet';
+import { Coordinate } from '../../data/types/coordinate';
 
 @Component({
   selector: 'app-map',
@@ -8,11 +8,12 @@ import { Sentiment } from '../../data/types/sentiment';
   styleUrls: ['./map.component.css'],
 })
 export class MapComponent {
-  private _pointerData: Sentiment[];
-  @Input() set pointerData(data: Sentiment[]) {
-    this._pointerData = data;
+  private _markerData: Coordinate[];
+  @Input() set markerData(data: Coordinate[]) {
+    this._markerData = data;
     this.drawMarkers()
   }
+  @Output() markerClick = new EventEmitter<string>();
 
   options = {
     layers: [
@@ -23,18 +24,19 @@ export class MapComponent {
   };
 
   layers = [];
-
+ 
   drawMarkers() {
     this.layers = [];
-    this._pointerData.forEach(p => {
+    this._markerData.forEach(p => {
       this.layers.push(
-        marker([p.coordinate.coordinates[1], p.coordinate.coordinates[0]], {
+        marker([p.coordinates[1], p.coordinates[0]], {
+          riseOnHover: true,
           icon: icon({
             iconSize: [12, 20],
             iconAnchor: [13, 41],
             iconUrl: 'assets/marker-icon.png'
           })
-        })
+        }).on('click', () => this.markerClick.emit(p.id))
       )
     });
   }

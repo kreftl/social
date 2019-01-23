@@ -1,16 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container-fluid">
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <app-map [markerData]="coordinatesData" (markerClick)="showPropertiesModal($event)"></app-map>
 </div>
-<app-map [pointerData]="sentimentData"></app-map>
-<ul>
-  <li *ngFor="let entry of sentimentData">
-    <a [href]="'https://instagram.com/' + entry.properties.userName" *ngIf="entry.properties.source == 'instagram'"
-      target="_blank">{{entry.properties.userName}}</a>
-    <a [href]="'https://twitter.com/' + entry.properties.userName" *ngIf="entry.properties.source == 'twitter'"
-      target="_blank">{{entry.properties.userName}}</a>
-    {{entry.properties.text}}
-  </li>
-</ul>
