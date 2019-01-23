@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import { Properties } from '../../../data/types/properties';
+import { Properties } from '../../../data/types/sentiment';
 
 @Component({
   selector: 'app-properties',

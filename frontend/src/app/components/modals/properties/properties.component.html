@@ -9,6 +9,7 @@
   {{properties.text}}
 </div>
 <div class="modal-footer {{properties.labelledSentiment}}">
+  <img src="assets/{{properties.source}}.png" />
   <small>{{ postDate | date: 'medium' }}</small>
   <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">Close</button>
 </div>

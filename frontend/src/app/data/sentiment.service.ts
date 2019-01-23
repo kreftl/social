@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment.prod';
-import { Sentiment } from './types/sentiment';
-import { Coordinate } from './types/coordinate';
-import { Properties } from './types/properties';
+import { Coordinate, Properties } from './types/sentiment';
+import { Analytics } from './types/analytics';
 
 @Injectable({
   providedIn: 'root'
@@ -14,12 +13,12 @@ export class SentimentService {
   
   constructor(private http : HttpClient) { }
 
-  getData(): Observable<Sentiment[]> {
-    return this.http.get<Sentiment[]>(this.backendUrl + "/data");
+  getAnalytics(): Observable<Analytics> {
+    return this.http.get<Analytics>(this.backendUrl + "/analytics");
   }
 
-  getCoordinates(): Observable<Coordinate[]> {
-    return this.http.get<Coordinate[]>(this.backendUrl + "/coordinates");
+  getCoordinates(filter: Analytics): Observable<Coordinate[]> {
+    return this.http.post<Coordinate[]>(this.backendUrl + "/coordinates", filter);
   }
 
   getProperties(id): Observable<Properties> {

@@ -1,7 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/leaflet/dist/leaflet.css";
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+$positive: #2ecc71;
+$negative: #e85141;
+$neutral: #abcdef;
+$twitter: #00a8f3;
+$instagram: #b83dba;
 
 html, body {
     height: 100%;
+}
+
+.sentiment-positive {
+    color: $positive;
+}
+.sentiment-negative {
+    color: $negative;
+}
+.sentiment-neutral {
+    color: $neutral;
+}
+.source-twitter {
+    color: $twitter;
+}
+.source-instagram {
+    color: $instagram;
+}
+
+.modal-header.positive {
+    border-bottom-color: $positive;
+}
+
+.modal-header.negative {
+    border-bottom-color: $negative;
+}
+
+.modal-body.positive {
+    background-color: lighten($positive, 40%);
+}
+
+.modal-body.negative {
+    background-color: lighten($negative, 40%);
+}
+
+.modal-footer.positive {
+    border-top-color: $positive;
+}
+
+.modal-footer.negative {
+    border-top-color: $negative;
 }

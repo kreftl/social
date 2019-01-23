@@ -1,0 +1,24 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Analytics</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body d-flex flex-column h-50">
+  <div class="d-flex flex-shrink-1">
+    <ngx-charts-bar-vertical-stacked class="flex-shrink-1" [scheme]="sourcesColors" [view]="[undefined, 250]" [results]="sentimentData"
+      [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Sentiment"
+      yAxisLabel="# messages">
+    </ngx-charts-bar-vertical-stacked>
+  </div>
+  <hr />
+  <div class="d-flex flex-shrink-1">
+    <ngx-charts-bar-horizontal-stacked class="flex-shrink-1" [scheme]="sentimentColors" [view]="[undefined, 250]"
+      [results]="sourcesData" [xAxis]="true" [yAxis]="true" [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true"
+      xAxisLabel="# messages" yAxisLabel="Source">
+    </ngx-charts-bar-horizontal-stacked>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()">Close <i class="fa fa-close"></i></button>
+</div>
