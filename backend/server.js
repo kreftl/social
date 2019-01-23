@@ -1,7 +1,9 @@
 import express from 'express';
+import cors from 'cors';
 import fs from 'fs';
 
 const app = express();
+app.use(cors());
 
 const data = JSON.parse(fs.readFileSync(__dirname + "/data/sentimentdata.json", 'utf8'));
 
