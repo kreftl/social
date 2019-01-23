@@ -1,7 +1,24 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div class="container-fluid">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <app-map [markerData]="coordinatesData" (markerClick)="showPropertiesModal($event)"></app-map>
+<div class="d-flex flex-column h-100">
+  <nav class="navbar navbar-expand-md sticky-top bg-light">
+    <a class="navbar-brand" href="#">
+      <h1 class="navbar-brand mb-0">Socialize!</h1>
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item"><a class="nav-link" href=''>Analytics <i class="fa fa-bar-chart"></i></a></li>
+    </ul>
+  </nav>
+  <div id="outer" class="d-flex flex-column flex-grow-1">
+    <app-map class="flex-grow-1" [markerData]="coordinatesData" (markerClick)="showPropertiesModal($event)"></app-map>
+  </div>
 </div>
+<!--
+<div class="container-fluid d-flex h-100 flex-column">
+  <div class="row">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+  <div class="row fill d-flex justify-content-start">
+  </div>
+</div>
+-->

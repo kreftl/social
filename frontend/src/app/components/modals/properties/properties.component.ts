@@ -9,11 +9,12 @@ import { Properties } from '../../../data/types/properties';
 })
 export class PropertiesComponent implements OnInit {
   properties: Properties;
+  postDate: Date;
 
   constructor(public bsModalRef: BsModalRef) { }
 
   ngOnInit() {
-    console.log(this.properties);
+    this.postDate = new Date(this.properties.year, this.properties.month - 1, this.properties.day, this.properties.hour, this.properties.minute, this.properties.second);
   }
 
 }

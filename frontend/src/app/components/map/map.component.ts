@@ -17,7 +17,8 @@ export class MapComponent {
 
   options = {
     layers: [
-      tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: 'Open Street Map' })
+  //    tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {  attribution: 'Open Street Map' }),
+      tileLayer('https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png', { maxZoom: 19, attribution: 'Open Street Map' })
     ],
     zoom: 15,
     center: latLng(1.335298682, 103.740123287)

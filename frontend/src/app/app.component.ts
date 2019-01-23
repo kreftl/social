@@ -4,6 +4,7 @@ import { Coordinate } from './data/types/coordinate';
 import { Properties } from './data/types/properties';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { PropertiesComponent } from './components/modals/properties/properties.component';
+import { Sentiment } from './data/types/sentiment';
 
 @Component({
   selector: 'app-root',
